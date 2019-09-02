@@ -24,6 +24,6 @@ Here's a very simple example of how the class could be used:
    fb.move_x(1,4);
    fb.move_x(2,5);
    fb.move_o(7,0,6,1);
-   print(fb.game_state);
+   print(fb.get_game_state());
 ```
 The file must be named: **FBoard.py**
