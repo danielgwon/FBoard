@@ -5,6 +5,7 @@ Write a class named FBoard for playing a game, where player x is trying to get h
 * An 8x8 list of lists for tracking the positions of the pieces.
 * A data member called game_state that holds one of the following string values: "X_WON", "O_WON", or "UNFINISHED".
 * Data members to keep track of where the x piece is.
+
 **The data members should all be private.**
 * An init method (constructor) that initializes the list of lists to represent an empty 8x8 board (you can use whatever character you want to represent empty).  It should then put four o pieces on row 7, in columns 0, 2, 4, and 6.  It should put an x piece on row 0, column 3.  It should also initialize the other data members.
 * A method called get_game_state, that returns the current value of game_state.
