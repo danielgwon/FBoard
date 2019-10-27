@@ -1,9 +1,9 @@
 # project-10
 
-Write a class named FBoard for playing a game, where player x is trying to get her piece to row 7 and player o is trying to make it so player x doesn't have any legal moves.  It should have:
+Write a class named FBoard for playing a game, where player x is trying to get her piece to row 7 and player o is trying to make it so player x doesn't have any legal moves.  It should have the following private data members:
 
 * An 8x8 list of lists for tracking what's on each square of the board.
-* A data member called game_state that holds one of the following string values: "X_WON", "O_WON", or "UNFINISHED".
+* A data member for tracking the game state, that holds one of the following string values: "X_WON", "O_WON", or "UNFINISHED".
 * Data members to keep track of where the x piece is.
 
 **The data members should all be private.**
