@@ -41,16 +41,16 @@ class FBoard:
         if self._board[row][column] != '':
             return False
 
-        # check if the move is diagonal
+        # if the move is diagonal, move x
         if row > (self._x_row+1) or row < (self._x_row-1):
             return False
         elif column > (self._x_column+1) or column < (self._x_column-1):
             return False
-        else:                               # move x to desired position
-            self._board[self._x_row][self._x_column] = ''       # clear old position
+        else:                                      # move x to desired position
+            self._board[self._x_row][self._x_column] = ''  # clear old position
             self._x_row = row
             self._x_column = column
-            self._board[self._x_row][self._x_column] = 'x'      # move x to new position
+            self._board[self._x_row][self._x_column] = 'x'  # move x
             if self._x_row == 7:
                 self._game_state = "X_WON"
                 return True
@@ -58,15 +58,43 @@ class FBoard:
     def move_o(self, row_from, column_from, row_to, column_to):
         """"""
 
-        # check if row or column are out of bounds
-        if (row < 0 or row > 7) or (column < 0 or column > 7):
+        # if game_state is X_WON or O_WON, the game is over
+        if self.get_game_state() != "UNFINISHED":
             return False
 
-        # if state is X_WON or O_WON, the game is over
-        if state != "UNFINISHED":
+        # check if row or column are out of bounds
+        if (row_to < 0 or row_to > 7) or (column_to < 0 or column_to > 7):
             return False
+
+        # check if position is occupied
+        if self._board[row_to][column_to] != '':
+            return False
+
+        # check if o is in the starting position
+        if self._board[row_from][column_from] != 'o':
+            return False
+
+        # if row doesn't increase and move is diagonal, move o
+        if row_to > row_from:
+            return False
+        elif column_to != (column_from+1) and column_to != (column_from-1):
+            return False
+        else:
+            self._board[row_from][column_from] = ''
+            self._board[row_to][column_to] = 'o'
+
+        # check if x has any legal moves
+        if self._board[self._x_row+1:
+            self._game_state = "O_WON"
+
+        return True
+
+
+
+
+
 
 
 fb = FBoard()
 fb.print_board()
-print(fb.move_x(7, 1))
+print(fb.move_o(7, 1))
