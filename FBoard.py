@@ -83,16 +83,33 @@ class FBoard:
             self._board[row_from][column_from] = ''
             self._board[row_to][column_to] = 'o'
 
-        # check if x has any legal moves
-        if self._board[self._x_row+1:
+        # x position tuples
+        x_positions = []
+
+        = (self._x_row-1, self._x_column-1)
+        x_position_2 = (self._x_row-1, self._x_column+1)
+        x_position_3 = (self._x_row+1, self._x_column-1)
+        x_position_4 = (self._x_row+1, self._x_column+1)
+
+        # check position one
+        if x_row-1 >= 0 and x_col-1 >= 0:
+            if self._board[x_row-1][x_col-1] != '':
+                x_positions[0] = False
+        # check position two
+        if x_row-1 >= 0 and x_col+1 <= 7:
+            if self._board[x_row-1][x_col+1] = '':
+                self._game_state = "UNFINISHED"
+        elif x_row+1 <= 7:
+            if x_col-1 >= 0:
+                if self._board[x_row+1][x_col-1] = '':
+                    self._game_state = "UNFINISHED"
+            elif x_col+1 <= 7:
+                if self._board[x_row+1][x_col+1] = '':
+                    self._game_state = "UNFINISHED"
+        else:
             self._game_state = "O_WON"
 
         return True
-
-
-
-
-
 
 
 fb = FBoard()
